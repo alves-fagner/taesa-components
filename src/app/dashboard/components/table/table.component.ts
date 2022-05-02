@@ -14,29 +14,15 @@ export class TableComponent implements OnInit {
     data: []
   }
 
-
-  collection: any = { count: 60, data: [] };
-  config = {
+  config: any = {
     id: 'custom',
-    itemsPerPage: 5,
     currentPage: 1,
-    totalItems: 42, // Quantidade total de itens da tabela
+    itemsPerPage: 10,
+    totalItems: 1, // Quantidade total de itens da tabela - OBRIGATÓRIO
   };
 
-  public maxSize: number = 6;
-  public directionLinks: boolean = true;
-  public autoHide: boolean = false;
-  public responsive: boolean = true;
-  public labels: any = {
-      previousLabel: '<--',
-      nextLabel: '-->',
-      screenReaderPaginationLabel: 'Pagination',
-      screenReaderPageLabel: 'page',
-      screenReaderCurrentLabel: `You're on page`
-  };
-
-
-
+  public maxSize: any = 6;
+  // Referência: https://www.freakyjolly.com/angular-pagination-example-using-ngx-pagination/
 
   constructor() { }
 
@@ -45,6 +31,10 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.config.itemsPerPage = this.tableConfig.paginationConfig?.itemsPerPage;
+    this.config.totalItems = this.tableConfig.paginationConfig?.totalItems;
+    this.config.currentPage = this.tableConfig.paginationConfig?.currentPage;
+    this.maxSize = this.tableConfig.paginationConfig?.maxSize;
   }
 
   getDataByAtributeName(data: any, atribute: any) {

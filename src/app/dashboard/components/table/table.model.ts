@@ -1,10 +1,18 @@
 interface Table {
+    paginationConfig?: PaginationConfig;
     columns: Column[];
     attributeName: string[];
     data: any[];
     onClick?: Function;
     actionsList?: Action[];
     styles?: Styles;
+}
+
+interface PaginationConfig {
+    itemsPerPage?: number;
+    totalItems: number; // Quantidade total de itens da tabela
+    maxSize?: number;
+    currentPage?: number;
 }
 
 interface Action {

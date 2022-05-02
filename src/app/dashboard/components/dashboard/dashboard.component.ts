@@ -10,6 +10,7 @@ export class DashboardComponent implements OnInit {
   data = [];
 
   table: Table = {
+    paginationConfig: { itemsPerPage: 5, totalItems: 42, maxSize: 6, currentPage: 1 },
     columns: [{ name: "Leilão" }, { name: "Responsável" }, { name: "Edital" }],
     attributeName: ['leilao', 'responsavel', 'edital'],
     data: [
@@ -230,10 +231,7 @@ export class DashboardComponent implements OnInit {
         class: 'btn btn-sm btn-primary',
         title: 'teste',
         icon: 'teste',
-        callback: (data: any,index: any) => {
-          console.log("TESTE");
-          
-        },
+        callback: (data: any,index: any) => { console.log("TESTE")},
         name: "TESTE"
       }
     ],
