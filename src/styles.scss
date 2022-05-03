@@ -2,3 +2,59 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.badge-style{
+    border-radius: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.badge-primary {
+    background-color: #D5DDEC;
+    color: #2D539C;
+}
+
+.badge-danger {
+    background-color: #F7DCEC;
+    color: #C71680;
+}
+
+.badge-warning {
+    background-color: #F5DED1;
+    color: #C64A00;
+}
+
+.badge-success {
+    background-color: #DFF1EA;
+    color: #426B3B;
+}
+
+.badge-moss {
+    background-color: #DBE3E7;
+    color: #323C47;
+}
+
+.badge-lilac {
+    background-color: #EEDBEB;
+    color: #880B83;
+}
+
+.badge-brown {
+    background-color: #F5E2D7;
+    color: #A6450C;
+}
+
+.badge-brown {
+    background-color: #F5E2D7;
+    color: #A6450C;
+}
+
+.badge-marine {
+    background-color: #E0E8EC;
+    color: #05286A;
+}

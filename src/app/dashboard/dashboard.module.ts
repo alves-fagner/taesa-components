@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import {MatMenuModule} from '@angular/material/menu';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -17,6 +18,7 @@ import { TableComponent } from './components/table/table.component';
   imports: [
     CommonModule,
     NgxPaginationModule,
+    MatMenuModule,
     DashboardRoutingModule,
     MatSidenavModule,
     MatIconModule,

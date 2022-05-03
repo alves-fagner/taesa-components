@@ -8,11 +8,9 @@ import { Table } from './table.model';
 })
 export class TableComponent implements OnInit {
 
-  @Input() tableConfig: Table = {
-    columns: [],
-    attributeName: [],
-    data: []
-  }
+  @Input() tableConfig: Table = { columns: [], attributeName: [], data: [] }
+
+  hasStatus = false;
 
   config: any = {
     id: 'custom',
@@ -35,13 +33,19 @@ export class TableComponent implements OnInit {
     this.config.totalItems = this.tableConfig.paginationConfig?.totalItems;
     this.config.currentPage = this.tableConfig.paginationConfig?.currentPage;
     this.maxSize = this.tableConfig.paginationConfig?.maxSize;
+    if(this.tableConfig.statusConfig) this.hasStatus = true;
   }
 
   getDataByAtributeName(data: any, atribute: any) {
     if (typeof data[atribute] === "object") {
-      return `${"<span class='badge bg-"}${data[atribute].color}${"'>"}${data[atribute].name}${"</span>"}`
+      return this.buildStatus(data[atribute].class, data[atribute].name);
     } else {
-      return "<div>" + data[atribute] + "<div/>"
+      return "<div>" + data[atribute] + "</div>"
     }
   }
+
+  buildStatus(colorClass: string, name: string) {
+    return `${"<span class='badge badge-style "}${colorClass}${"'>"}${name}${"</span>"}`
+  }
+
 }

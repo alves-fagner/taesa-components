@@ -1,11 +1,24 @@
 interface Table {
     paginationConfig?: PaginationConfig;
+    statusConfig?: StatusConfig;
     columns: Column[];
     attributeName: string[];
     data: any[];
     onClick?: Function;
     actionsList?: Action[];
+    actionsListTop?: Action[];
+    buttonInHead?: Action;
     styles?: Styles;
+}
+
+interface StatusConfig {
+    statusForFilter: Status[];
+    statusFilterFunction: Function;
+}
+
+interface Status {
+    name: string;
+    class: string;
 }
 
 interface PaginationConfig {

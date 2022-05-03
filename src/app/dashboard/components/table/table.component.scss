@@ -10,9 +10,11 @@
     }
 }
 .table-border{
+    overflow: hidden;
+    border-radius: 8px;
     width: 100%;
     border: 1px solid #E7E7E7;
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 table{
@@ -65,4 +67,25 @@ table{
 .pagination-previous,.pagination-next{
     display: inline-block;
     font-weight: bold;
+}
+
+.status-filter{
+    cursor: pointer;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.btn-status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-top{
+    align-self: flex-end; 
+    display: flex; 
+    margin-bottom: 10px;
 }

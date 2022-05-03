@@ -1,13 +1,47 @@
 <div class="table-container">
+
+    <div class="list-top">
+        <div *ngIf="hasStatus">
+            <span mat-button [matMenuTriggerFor]="menu" class="status-filter">
+                Filtrar status <img src="assets/icons/bottom-arrow-black.svg" alt="bottom-arrow" class="ml-1">
+            </span>
+            <mat-menu #menu="matMenu">
+                <button class ="btn-status" 
+                    *ngFor="let status of tableConfig.statusConfig?.statusForFilter"
+                    (click)="tableConfig.statusConfig?.statusFilterFunction(status)"  
+                    mat-menu-item [innerHTML]="buildStatus(status.class, status.name)">
+                </button>
+            </mat-menu>
+        </div>
+        <div *ngIf="tableConfig.actionsListTop" style="display: flex;">
+            <div *ngFor="let action of tableConfig.actionsListTop;">
+                <button [class]="action.class" style="margin-left: 8px;"
+                    [ngClass]="{'disabled': action.disabled}" [title]="action.title"
+                    (click)="null" [disabled]="action.disabled">
+                    <em [ngClass]="action.icon"></em> {{action.name}}
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <div class="table-border">
         <table>
             <thead>
-                <tr
-                    [ngStyle]="{'background-color': tableConfig.styles && tableConfig.styles.headerColor ? tableConfig.styles.headerColor : '#F3F6F8'}">
+                <tr [ngStyle]="{'background-color': tableConfig.styles && tableConfig.styles.headerColor ? tableConfig.styles.headerColor : '#F3F6F8'}">
                     <th scope="col" *ngFor="let column of tableConfig.columns" [ngStyle]="{'width': column.width}">
                         {{column.name}}
                     </th>
-                    <th *ngIf="tableConfig.actionsList" scope="col" style="position: sticky; top: 0; z-index: 10;"> Ações
+                    <th *ngIf="tableConfig.actionsList" scope="col" style="position: sticky; top: 0; z-index: 10;">
+                        <button *ngIf="tableConfig.buttonInHead" [class]="tableConfig.buttonInHead.class" [title]="tableConfig.buttonInHead.title"
+                            [ngClass]="{'disabled': tableConfig.buttonInHead.disabled}" [disabled]="tableConfig.buttonInHead.disabled"
+                            (click)="null">
+                            <em [ngClass]="tableConfig.buttonInHead.icon"></em> {{tableConfig.buttonInHead.name}}
+                        </button>
+                        <span *ngIf="!tableConfig.buttonInHead">Ações</span>
                     </th>
                 </tr>
             </thead>
